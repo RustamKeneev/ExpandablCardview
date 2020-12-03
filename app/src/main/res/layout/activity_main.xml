@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   <androidx.cardview.widget.CardView
+       android:id="@+id/card_view"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       android:background="@color/white"
+       android:layout_margin="8dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       tools:ignore="MissingConstraints">
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/first_constraint"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <ImageView
+               android:id="@+id/image_card_view"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintDimensionRatio="H,16:9"
+               android:src="@mipmap/ic_launcher"
+               android:scaleType="centerCrop"
+               android:layout_width="0dp"
+               android:layout_height="0dp"/>
+
+           <androidx.cardview.widget.CardView
+               android:id="@+id/view_card_view"
+               app:layout_constraintTop_toBottomOf="@id/image_card_view"
+               app:layout_constraintLeft_toLeftOf="parent"
+               android:layout_margin="8dp"
+               android:elevation="12dp"
+               app:cardCornerRadius="25dp"
+               android:layout_width="50dp"
+               android:layout_height="50dp">
+
+               <ImageView
+                   android:id="@+id/circle_image"
+                   android:src="@mipmap/ic_launcher"
+                   android:scaleType="centerCrop"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"/>
+
+           </androidx.cardview.widget.CardView>
+
+           <TextView
+               android:id="@+id/name"
+               app:layout_constraintLeft_toRightOf="@id/view_card_view"
+               app:layout_constraintTop_toTopOf="@id/view_card_view"
+               android:text="Doctor name"
+               android:textStyle="bold"
+               android:layout_marginLeft="8dp"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"/>
+
+           <TextView
+               android:id="@+id/doctor_description"
+               android:textStyle="italic"
+               android:text="Description"
+               app:layout_constraintTop_toBottomOf="@id/name"
+               app:layout_constraintBottom_toBottomOf="@id/view_card_view"
+               app:layout_constraintLeft_toLeftOf="@id/name"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+           <Button
+               android:id="@+id/drop_down_button"
+               android:background="@drawable/ic_arrow_down"
+               app:layout_constraintTop_toTopOf="@id/view_card_view"
+               app:layout_constraintBottom_toBottomOf="@id/view_card_view"
+               app:layout_constraintRight_toRightOf="parent"
+               android:layout_marginRight="8dp"
+               android:layout_width="35dp"
+               android:layout_height="35dp"/>
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:id="@+id/expandable_constraint_layout"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:padding="8dp"
+               android:visibility="gone"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/view_card_view">
+
+               <ImageView
+                   android:id="@+id/phone_image"
+                   android:layout_width="30dp"
+                   android:layout_height="30dp"
+                   android:layout_margin="8dp"
+                   android:background="@drawable/ic_phone"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:id="@+id/phone_text"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="8dp"
+                   android:text="+996-500-000-00"
+                   app:layout_constraintBottom_toTopOf="@id/phone_description"
+                   app:layout_constraintLeft_toRightOf="@id/phone_image"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintTop_toTopOf="@id/phone_image" />
+
+               <TextView
+                   android:id="@+id/phone_description"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:text="phone description"
+                   app:layout_constraintBottom_toBottomOf="@id/phone_image"
+                   app:layout_constraintLeft_toLeftOf="@id/phone_text"
+                   app:layout_constraintTop_toBottomOf="@id/phone_text" />
+
+
+               <ImageView
+                   android:id="@+id/email_image"
+                   android:layout_width="30dp"
+                   android:layout_height="30dp"
+                   android:layout_margin="8dp"
+                   android:layout_marginTop="32dp"
+                   android:background="@drawable/ic_email"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintLeft_toLeftOf="@id/phone_image"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@id/phone_image" />
+
+               <TextView
+                   android:id="@+id/email_text"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="8dp"
+                   android:text="dr.doctor@gmail.com"
+                   app:layout_constraintBottom_toBottomOf="@id/email_image"
+                   app:layout_constraintLeft_toRightOf="@id/email_image"
+                   app:layout_constraintTop_toTopOf="@id/email_image" />
+
+               <TextView
+                   android:id="@+id/emai_description"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:text="email description"
+                   app:layout_constraintLeft_toLeftOf="@id/email_text"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintTop_toBottomOf="@id/email_text" />
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
